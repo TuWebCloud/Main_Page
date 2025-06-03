@@ -1,0 +1,113 @@
+---
+import ThemeToggle from "../components/ThemeToggle.astro";
+import IconMenu from "../components/icons/Menu.astro"
+---
+
+<header class="fixed w-full top-0 flex flex-row 
+    justify-between items-center py-4 px-8 z-50">
+    <h1 class="text-3xl font-bold">tu<span class="text-[var(--color-primary)]"> | </span>WEB</h1>
+
+    <div class="flex flex-row items-center gap-4 sm:gap-8">
+        <ThemeToggle />
+        <button id="nav-toggle" class="cursor-pointer text-3xl">
+            <IconMenu />
+        </button>
+        <nav id="main-nav" class="absolute flex flex-col
+            text-xl font-light w-full h-0 overflow-hidden
+            left-0 top-full transition-all duration-300 ease">
+            <a href="#">Sobre Nosotros</a>
+            <a href="#">Servicios</a>
+            <a href="#">Blog</a>
+            <a href="#">Precios</a>
+            <a href="#">Contáctanos</a>
+        </nav>
+    </div>
+</header>
+
+<script type="module" is:inline>
+    const toggle = document.getElementById('nav-toggle');
+    const iconCancel = `<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>`
+
+    const nav = document.getElementById('main-nav');
+    toggle?.addEventListener('click', () => {
+        nav.classList.toggle('open');
+
+        if (nav.classList.contains('open')) {
+            toggle.innerHTML = iconCancel
+        } else {
+            toggle.innerHTML = '<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>'
+        }
+    });
+</script>
+
+<style>
+    header {
+        background-color: color-mix(in oklab, var(--color-text) 1%, transparent);
+        backdrop-filter: blur(10px);       
+    }
+    header::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, color-mix(in oklab, var(--color-text) 20%, transparent), transparent);
+    }
+
+    a {
+        color: color-mix(in oklab, var(--color-text) 80%, transparent);
+        width: 100%;
+        padding: 8px 0;
+        text-align: center;
+        background-color: var(--color-bg);
+        backdrop-filter: blur(10px);        
+    }
+    a:hover {
+        color: var(--color-text);
+    }
+    a::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+            to right, 
+            var(--color-bg), 
+            color-mix(in oklab, var(--color-text) 20%, transparent), 
+            var(--color-bg)
+        );
+    }
+
+    nav.open {
+        height: 221px;
+    }
+
+    @media (min-width: 868px) {
+        #main-nav {
+            position: static;
+            flex-direction: row;
+            height: auto;
+            width: auto;
+            overflow: visible;
+            gap: 32px;
+        }
+
+        #nav-toggle {
+            display: none;
+        }
+
+        a {
+            width: auto;
+            padding: 0;
+            text-align: start;
+            background: transparent;
+            backdrop-filter: none;
+        }
+        a::after {
+            display: none;
+        }
+    }
+</style>
