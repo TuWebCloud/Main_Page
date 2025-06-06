@@ -3,7 +3,7 @@ import IconExternalLink from '../components/icons/ExternalLink.astro';
 import {bento} from '../content/mosaico/bento-images.js'
 ---
 
-<section class="flex flex-row pt-[150px] items-center overflow-hidden">
+<section class="flex flex-row pt-[150px] pb-[calc(100vh-516.93px)] items-center overflow-hidden">
     <div id="call-to-action" class="flex flex-col gap-20 p-[20px]">
         <p class="text-wrap text-6xl sm:text-center">
             Crea una página web para tu <span class="font-semibold text-[var(--color-primary)]">negocio</span>
@@ -75,6 +75,7 @@ import {bento} from '../content/mosaico/bento-images.js'
     @media (min-width: 868px) {
         section {
             padding-top: 180px;
+            padding-bottom: calc(100vh- 516.93px);
             padding-left: 10%;
             gap: 24px;
         }
