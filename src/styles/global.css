@@ -44,13 +44,15 @@ section h2::after {
 }
 
 p strong {
-  color: color-mix(in oklab, var(--color-text) 80%, transparent);
+  color: var(--color-text);
+  color: color-mix(in oklab, var(--color-text) 85%, transparent);
 }
 p a {
   color: var(--color-primary);
   text-decoration: underline;
 }
 p a:hover {
+  color: var(--color-text);
   color: color-mix(in oklab, var(--color-primary) 75%, transparent);
   text-decoration: none;
 }
