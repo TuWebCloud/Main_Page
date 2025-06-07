@@ -1,21 +1,29 @@
-<section class="pb-40">
-    <h2>Sobre Nosotros</h2>
-    <p class="text-center md:text-left mx-5 my-10 sm:px-[15%] lg:px-[20%]
-        text-[var(--color-text)]/75 text-2xl font-light">
-        Somos una empresa que ofrece servicios de <strong>desarrollo y diseño web</strong> a cualquier modelo 
-        de negocio.<br/><br/>
-        Nuestro trabajo está orientado a la implementación y divulgación del suyo en el <strong>medio digital</strong>. No
-        nos encargamos solamente de publicar un menú o un texto informativo, sino que enfocamos nuestra labor en elevar 
-        la <strong>competencia</strong> de su marca por todos los medios disponibles.<br/><br/>
-        La <strong>competencia</strong> en el <strong>entorno digital</strong> puede potenciarse de muchas maneras, su objetivo 
-        es ganar la mayor cantidad de visitas de usuarios posicionándose lo más alto posible en los navegadores. 
-        Si desea saber más acerca del <strong>posicionamiento web</strong> puede informarse en nuestro 
-        <a href="../pages/blog.astro">blog</a>.
-    </p>
+<section id="about" class="pb-40">
+    <div>
+        <h2>Quiénes Somos <span>?</span></h2>
+        <p class="text-left mx-8 my-10 sm:px-[15%] lg:px-[20%]
+            text-[var(--color-text)]/75 text-2xl font-light">
+            Somos una empresa que ofrece servicios de <strong>desarrollo y diseño web</strong> a cualquier modelo 
+            de negocio.<br/><br/>
+            Nuestro trabajo está orientado a la implementación y divulgación del suyo en el <strong>medio digital</strong>. No
+            nos encargamos solamente de publicar un menú o un texto informativo, sino que enfocamos nuestra labor en elevar 
+            la <strong>competencia</strong> de su marca por todos los medios disponibles.<br/><br/>
+            La <strong>competencia</strong> en el <strong>entorno digital</strong> puede potenciarse de muchas maneras, su objetivo 
+            es ganar la mayor cantidad de visitas de usuarios posicionándose lo más alto posible en los navegadores. 
+            Si desea saber más acerca del <strong>posicionamiento web</strong> puede informarse en nuestro 
+            <a href="../pages/blog.astro">blog</a>.
+        </p>
+    </div>
 </section>
 
 <style>
+    div {
+        animation: fade-out-up 600ms ease-in-out;
+    }
     p {
         letter-spacing: 0px;
+    }
+    span {
+        color: var(--color-primary);
     }
 </style>
