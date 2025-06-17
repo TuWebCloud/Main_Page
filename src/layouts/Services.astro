@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import SiteInfo from "../components/SiteInfo.astro";
+
+const info_sitios = await getCollection("info_sitios")
+---
+
+<section id="services" class="scroll-mt-20">
+    <h2><span>¿</span> Qué tipo de sitios podemos crear <span>?</span></h2>
+    <p class="text-left mx-8 my-10 sm:mx-0 sm:px-[15%] lg:px-[22%]
+        text-[var(--color-text)]/75 text-2xl font-light">
+        Nos adaptamos a cualquiera que sea el propósito del cliente, desde <strong>deliverys</strong>, 
+        <strong>cafeterías</strong> y <strong>restaurantes</strong> hasta sitios más personales como 
+        <strong>currículums digitales</strong>. Puede revisar todos los servicios que ofrecemos 
+        <a href="/services.astro">aquí</a>.
+    </p>
+    <h3 class="mx-8 my-10 sm:mx-0 sm:px-[15%] lg:px-[22%]">
+        Nuestras páginas pueden tener 3 enfoques distintos
+    </h3>
+
+    <div class="flex flex-col">
+        {
+            info_sitios.map(async (info: any) => {
+                <SiteInfo title={info.title} info={info} />
+            })
+        }
+    </div>
+</section>
+
+<style>
+    h2 > span {
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    }
+    h2:hover > span:first-of-type {
+        transform: rotate(-30deg) translateX(-4px);
+    }
+    h2:hover > span:last-of-type {
+        transform: rotate(30deg) translateX(4px);
+    }
+
+    span {
+        color: var(--color-primary);
+    }
+</style>
