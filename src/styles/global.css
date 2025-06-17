@@ -43,6 +43,16 @@ section h2::after {
   background-color: var(--color-primary);
 }
 
+section h3 {
+  color: color-mix(in oklab, var(--color-text) 70%, transparent);
+  text-align: left;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+p {
+  letter-spacing: 0px;
+}
 p strong {
   color: var(--color-text);
   color: color-mix(in oklab, var(--color-text) 85%, transparent);
