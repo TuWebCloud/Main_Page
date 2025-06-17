@@ -2,10 +2,10 @@
 import { getCollection } from "astro:content";
 import SiteInfo from "../components/SiteInfo.astro";
 
-const info_sitios = await getCollection("info_sitios")
+const infoSitios = await getCollection("infoSitios")
 ---
 
-<section id="services" class="scroll-mt-20">
+<section id="services" class="scroll-mt-25">
     <h2><span>¿</span> Qué tipo de sitios podemos crear <span>?</span></h2>
     <p class="text-left mx-8 my-10 sm:mx-0 sm:px-[15%] lg:px-[22%]
         text-[var(--color-text)]/75 text-2xl font-light">
@@ -20,8 +20,8 @@ const info_sitios = await getCollection("info_sitios")
 
     <div class="flex flex-col">
         {
-            info_sitios.map((info: any) => {
-                <SiteInfo title={info.title} info={info} />
+            infoSitios.map((info: any) => {
+                return <SiteInfo title={info.title} info={info} />
             })
         }
     </div>
