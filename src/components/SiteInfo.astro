@@ -1,12 +1,12 @@
 ---
 import { render } from "astro:content"
 
-const { title, info } = Astro.props
+const { info } = Astro.props
 const { Content } = await render(info)
 ---
 
-<article>
-    <h4>{title}</h4>
+<article class="text-left mx-8 sm:mx-0 sm:px-[15%] lg:px-[22%]">
+    <h4 class="text-[var(--color-text)]">{info.title}</h4>
     <p class="text-left mx-8 my-10 sm:mx-0 sm:px-[15%] lg:px-[22%]
         text-[var(--color-text)]/75 text-2xl font-light">
         <Content />
