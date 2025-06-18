@@ -20,8 +20,8 @@ const infoSitios = await getCollection("infoSitios")
 
     <div class="flex flex-col">
         {
-            infoSitios.map((info: any) => {
-                return <SiteInfo title={info.title} info={info} />
+            infoSitios.map((info) => {
+                return <SiteInfo info={info} />
             })
         }
     </div>
