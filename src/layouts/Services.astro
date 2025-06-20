@@ -18,7 +18,7 @@ const infoSitios = await getCollection("infoSitios")
         Nuestras páginas pueden tener 3 enfoques distintos
     </h3>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col gap-6">
         {
             infoSitios.map((info) => {
                 return <SiteInfo info={info} />
