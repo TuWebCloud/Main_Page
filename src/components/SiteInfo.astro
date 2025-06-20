@@ -5,10 +5,45 @@ const { info } = Astro.props
 const { Content } = await render(info)
 ---
 
-<article class="text-left mx-8 sm:mx-0 sm:px-[15%] lg:px-[22%]">
-    <h4 class="text-[var(--color-text)]">{info.title}</h4>
-    <p class="text-left mx-8 my-10 sm:mx-0 sm:px-[15%] lg:px-[22%]
-        text-[var(--color-text)]/75 text-2xl font-light">
+<article class="relative flex flex-col gap-2 overflow-hidden
+    mx-8 sm:mx-[15%] lg:mx-[20%] lg:px-[2%] lg:py-4 py-2">
+    <h4>
+        {info.data.title}
+    </h4>
+    <div class="text-left text-[var(--color-text)]/75 text-xl font-light">
         <Content />
-    </p>
+    </div>
 </article>
+
+<style>
+    article::after {
+        content: '';
+        position: absolute;
+        top: calc(100% - 1px);
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, color-mix(in oklab, var(--color-text) 20%, transparent), transparent);
+    }
+    article::before {
+        content: '';
+        position: absolute;
+        top: calc(100% - 50px);
+        left: 0;
+        width: 100%;
+        height: 100px;
+        border-radius: 50%;
+        z-index: -1;
+        transition: all 200ms ease-in-out;
+        background: linear-gradient(to top, color-mix(in oklab, var(--color-text) 5%, transparent), transparent);
+    }
+
+    article:hover::before {
+        top: calc(100% - 80px);
+        height: 160px;
+        background: linear-gradient(to top, color-mix(in oklab, var(--color-primary) 10%, transparent), transparent);
+    }
+    article:hover::after {
+        background: linear-gradient(to right, transparent, color-mix(in oklab, var(--color-primary) 60%, transparent), transparent);
+    }
+</style>
