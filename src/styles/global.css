@@ -1,28 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #f0f0f0;
-  --color-text: #110e11;
+  --color-white: #f0f0f0;
+  --color-black: #110e11;
   --color-primary: #a00f99;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #110e11;
-    --color-text: #f0f0f0;
+    --color-bg: var(--color-black);
+    --color-text: var(--color-white);
     --color-primary: #ce1cc5;
+    --color-text-primary: #fdbeface;
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: var(--color-white);
+    --color-text: var(--color-black);
+    --color-primary: #ce1cc5;
+    --color-text-primary: #df38d7;
   }
 }
 
 body.theme-light {
-  --color-bg: #f0f0f0 !important;
-  --color-text: #110e11 !important;
+  --color-bg: var(--color-white) !important;
+  --color-text: var(--color-black) !important;
   --color-primary: #a00f99 !important;
+  --color-text-primary: #d01fc7cc;
 }
 body.theme-dark {
-  --color-bg: #110e11 !important;
-  --color-text: #f0f0f0 !important;
+  --color-bg: var(--color-black) !important;
+  --color-text: var(--color-white) !important;
     --color-primary: #ce1cc5 !important;
+    --color-text-primary: #fdbeface;
 }
 
 section h2 {
@@ -72,4 +83,39 @@ p a:hover {
   color: var(--color-text);
   color: color-mix(in oklab, var(--color-primary) 75%, transparent);
   text-decoration: none;
+}
+
+#strong-primary {
+  color: var(--color-text-primary);
+}
+
+#link-btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  font-size: 24px;
+  color: var(--color-white);
+  text-align: center;
+  padding: 4px 0;
+  background: linear-gradient(to right, var(--color-primary), color-mix(in oklab, var(--color-primary) 40%, transparent));
+}
+#link-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: inherit;
+  height: 44px;
+  background: var(--color-primary);
+  transition: all .3s ease;
+  z-index: -1;
+}
+#link-btn:hover::before {
+  left: 0;
+}
+
+@media (min-width: 768px) {
+  #link-btn {
+    mask-image: linear-gradient(to right, transparent 22%, color-mix(in oklab, var(--color-primary) 50%, transparent) 26%, black 50%, color-mix(in oklab, var(--color-primary) 50%, transparent) 74%,transparent 78%);
+  }
 }
