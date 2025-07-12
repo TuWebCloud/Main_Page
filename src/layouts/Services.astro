@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import SiteInfo from "../components/SiteInfo.astro";
+import ArrowDownIcon from "../components/icons/ArrowDown.astro";
 
 const infoSitios = await getCollection("infoSitios")
 ---
@@ -19,7 +20,7 @@ const infoSitios = await getCollection("infoSitios")
     <h3 class="flex flex-col mx-8 my-10 sm:mx-0 sm:px-[15%] lg:px-[22%] items-center">
         NUESTRAS PAGINAS PUEDEN TENER 3 ENFOQUES DISTINTOS
         <button class="relative grid h-10 w-[inherit] items-center overflow-hidden">
-            R
+            <ArrowDownIcon />
         </button>
     </h3>
 
