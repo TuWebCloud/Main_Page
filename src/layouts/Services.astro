@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import SiteInfo from "../components/SiteInfo.astro";
 import ArrowDownIcon from "../components/icons/ArrowDown.astro";
+import Expandible from "../components/Expandible.jsx";
 
 const infoSitios = await getCollection("infoSitios")
 ---
@@ -17,20 +18,16 @@ const infoSitios = await getCollection("infoSitios")
     <a id="link-btn" href="/src/pages/services.astro">
         Ver todos los servicios
     </a>
-    <h3 class="flex flex-col mx-8 my-10 sm:mx-0 sm:px-[15%] lg:px-[22%] items-center">
-        NUESTRAS PAGINAS PUEDEN TENER 3 ENFOQUES DISTINTOS
-        <button class="relative grid h-10 w-[inherit] items-center overflow-hidden">
-            <ArrowDownIcon />
-        </button>
-    </h3>
 
-    <div id="services-container" class="flex flex-col gap-6">
+    <Expandible client:visible>
+        <div id="services-container" class="flex flex-col gap-6">
         {
             infoSitios.map((info) => {
                 return <SiteInfo info={info} />
             })
         }
     </div>
+    </Expandible>
 </section>
 
 <style>
@@ -43,30 +40,6 @@ const infoSitios = await getCollection("infoSitios")
     }
     h2:hover > span:last-of-type {
         transform: rotate(30deg) translateX(4px);
-    }
-
-    h3 button::before {
-        content: '';
-        position: absolute;
-        top: calc(100% - 1px);
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(to right, transparent, color-mix(in oklab, var(--color-text) 20%, transparent), transparent);
-    }
-    h3 button::after {
-        content: '';
-        position: absolute;
-        top: 70%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        height: 30%;
-        border-radius: 50%;
-        z-index: -1;
-        filter: blur(10px);
-        transition: all 200ms ease-in-out;
-        background: color-mix(in oklab, var(--color-text) 1%, transparent)
     }
 
     span {
