@@ -1,0 +1,25 @@
+#mobile {
+    display: block;    
+}
+#mobile-btn {
+    display: block;
+}
+#desktop {
+    display: none;
+}
+
+.mask-gradient {
+    mask-image: linear-gradient(to bottom, black 50%, transparent 90%);
+}
+
+@media (min-width: 768px) {
+    #mobile {
+        display: none;
+    }
+    #mobile-btn {
+        display: none;
+    }
+    #desktop {
+        display: block;
+    }
+}

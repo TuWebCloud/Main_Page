@@ -5,14 +5,20 @@ const { info } = Astro.props
 const { Content } = await render(info)
 ---
 
-<article class="relative flex flex-col gap-2 overflow-hidden
+<article class="relative flex flex-row gap-4 overflow-hidden items-center
     mx-8 sm:mx-[15%] lg:mx-[20%] lg:px-[2%] lg:py-4 py-2">
-    <h4 id="strong-primary">
-        {info.data.title}
-    </h4>
-    <div class="text-left text-[var(--color-text)]/75 text-xl font-light">
-        <Content />
+
+    <div class="site-info-icon size-20 rounded-full"></div>
+
+    <div class="flex flex-col gap-2">
+        <h4 id="strong-primary">
+            {info.data.title}
+        </h4>
+        <div class="text-left text-[var(--color-text)]/75 text-xl font-light">
+            <Content />
+        </div>
     </div>
+
 </article>
 
 <style>
@@ -47,5 +53,9 @@ const { Content } = await render(info)
     }
     article:hover::after {
         background: linear-gradient(to right, transparent, color-mix(in oklab, var(--color-primary) 60%, transparent), transparent);
+    }
+
+    .site-info-icon {
+        border: 1px solid var(--color-primary);
     }
 </style>
