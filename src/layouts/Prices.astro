@@ -1,0 +1,118 @@
+---
+import Check from "../components/icons/Check.astro";
+import CheckIcon from "../components/icons/Check.astro";
+import NotIcon from "../components/icons/Not.astro";
+---
+
+<section id="prices" class="scroll-mt-25 mx-8 my-10 sm:mx-0 sm:px-[10%] lg:px-[18%]">
+    <h2>Precios</h2>
+    <div id="plans-container" class="flex flex-wrap place-content-around">
+        <div id="basic" class="plans relative mt-25 min-w-70 h-140">
+            <p class="relative price text-center m-10 pb-3 text-3xl">1000 <span>-</span> 2000 <span class="block">CUP</span></p>
+            <ul class="mx-10">
+                <li><CheckIcon /> Falta</li>
+                <li><CheckIcon /> Rellenar</li>
+                <li><NotIcon /> Esto</li>
+            </ul>
+        </div>
+        <div id="pro" class="plans relative mt-25 min-w-70 h-140">
+            <p class="relative price text-center m-10 pb-3 text-3xl">1000 <span>-</span> 2000 <span class="block">CUP</span></p>
+            <ul class="mx-10">
+                <li><CheckIcon /> Falta</li>
+                <li><CheckIcon /> Rellenar</li>
+                <li><CheckIcon /> Esto</li>
+            </ul>
+        </div>
+        <div id="shop" class="plans relative mt-25 min-w-70 h-140">
+            <p class="relative price text-center m-10 pb-3 text-3xl"><span>+</span> 2000 <span class="block">CUP</span></p>
+            <ul class="mx-10">
+                <li><CheckIcon /> Todo lo anterior</li>
+                <li><span>+</span> Rellenar</li>
+                <li><span>+</span> Esto</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+    .plans {
+        border-radius: 0 20px 20px 20px;
+        background-color: color-mix(in oklab, var(--color-text) 2%, transparent);
+        backdrop-filter: blur(5px);
+    }
+    .price {
+        overflow: hidden;
+        border-bottom: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+    }
+    .price::after {
+        content: '';
+        position: absolute;
+        top: calc(100% - 50px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 100px;
+        border-radius: 50%;
+        z-index: -1;
+        filter: blur(10px);
+        background: color-mix(in oklab, var(--color-text) 2%, transparent)
+    }
+
+    #basic {
+        border: 2px solid orange;
+    }
+    #pro {
+        border: 2px solid green;
+        box-shadow: 0 0 20px color-mix(in oklab, greenyellow 20%, transparent);;
+    }
+    #shop {
+        border: 2px solid var(--color-primary);
+    }
+
+    #basic::before, #pro::before, #shop::before {
+        position: absolute;
+        top: -46px;
+        left: -2px;
+        height: 46px;
+        font-size: 34px;
+        color: var(--color-white);
+        padding: 0 15px;
+        border-radius: 20px 20px 0 0;
+    }
+    #basic::before {
+        content: 'Plan Básico';
+        position: absolute;
+        background-color: orange;
+    }
+    #pro::before {
+        content: 'Plan Premium';
+        background-color: green;
+    }
+    #shop::before {
+        content: 'Tienda Digital';
+        background-color: var(--color-primary);
+    }
+
+    li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 100;
+        gap: 8px;
+    }
+    li:not(li:last-child) {
+        border-bottom: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+    }
+
+    span:not(li span) {
+        font-weight: 100;
+        color: color-mix(in oklab, var(--color-text) 50%, transparent);
+        text-align: center;
+    }
+    li span {
+        font-weight: 400;
+        color: yellow;
+        font-size: 24px;
+    }
+</style>
